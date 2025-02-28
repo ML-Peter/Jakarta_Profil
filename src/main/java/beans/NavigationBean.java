@@ -15,7 +15,17 @@ import java.io.IOException;
  */
 @Named("NavigationBean")
 @RequestScoped
-public class NavigationBean { 
+public class NavigationBean {
+    
+     public void redirection(String url){
+            try{ 
+                FacesContext.getCurrentInstance().getExternalContext()
+                        .redirect(url);
+            }catch (IOException e){
+                
+                e.printStackTrace();
+            }
+        }
     
     public void voirApropos(){
         try {
@@ -36,8 +46,7 @@ public class NavigationBean {
             e.printStackTrace();
         
         }
-    
-    
+        
     }
     public void voirAjouter(){
         try {
@@ -47,8 +56,18 @@ public class NavigationBean {
             e.printStackTrace();
         
         }
-    
-    
+
     }
-      
+    
+    public void visiterLieu(){
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("guide.xhtml");
+        
+        }catch(IOException e){
+            e.printStackTrace();
+        
+        }
+
+    }
+    
 }

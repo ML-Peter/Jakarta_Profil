@@ -8,10 +8,14 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 
 @Stateless
-public class LieuEntrepriseBean {
+public class LieuEntrepriseBean {    
 
     @PersistenceContext
     private EntityManager em;
+
+    // Constructeur par défaut
+    public LieuEntrepriseBean() {
+    }
 
     @Transactional
     public void ajouterLieuEntreprise(String nom, String description, double latitude, double longitude) {
